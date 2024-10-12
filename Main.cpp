@@ -18,10 +18,11 @@ private:
 
     Node* head;
     Node* tail;
+    int size;
 
 public:
     // constructor
-    DoublyLinkedList() { head = nullptr; tail = nullptr; }
+    DoublyLinkedList() { head = nullptr; tail = nullptr; size = 0; }
 
     void push_back(int value) {
         Node* newNode = new Node(value);
