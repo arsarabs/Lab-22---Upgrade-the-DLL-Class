@@ -150,8 +150,32 @@ public:
             return;
         }
 
+        if (temp->prev) { // If the node to delete is not the head
+            temp->prev->next = temp->next; // Link the previous node's next to the current node's next
+        }
+        else {
+            head = temp->next; // If deleting the head, update head to the next node
+        }
 
+        if (temp->next) { // If the node to delete is not the tail
+            temp->next->prev = temp->prev; // Link the next node's prev to the current node's prev
+        }
+        else {
+            tail = temp->prev; // If deleting the tail, update tail to the previous node
+        }
+         
+        cout << "Deleted node at position " << position << " with value " << temp->data << "." << endl;
+        delete temp; // Delete the node to free memory
     }
+
+    //#9: pop_front() removes the head node from the list
+   // arguments: none
+   // returns: void
+
+
+     //#10: pop_back() removes the tail node from the list
+    // arguments: none
+    // returns: void
 
     void print() {
         Node* current = head;
@@ -172,14 +196,22 @@ public:
         }
         cout << endl;
     }
+    //#13: size() returns the current number of nodes in the list
+      // arguments: none
+      // returns: int - size of the list
+    int size() const {
+        int count = 0;           // Initialize a counter for the number of nodes
+        Node* current = head;    // Start from the head of the list
 
-    ~DoublyLinkedList() {
-        while (head) {
-            Node* temp = head;
-            head = head->next;
-            delete temp;
+        // Traverse the list and count each node
+        while (current) {
+            ++count;               // Increment the counter
+            current = current->next; // Move to the next node
         }
+
+        return count; // Return the total count of nodes
     }
+
 }; 
 
 // Driver program
