@@ -67,7 +67,9 @@ public:
             return;
         }
 
-        Node* temp = head;
+        Node* temp = head; // Start traversal from the head of the list
+
+        // Traverse the list to reach the specified position
         for (int i = 0; i < position && temp; ++i)
             temp = temp->next;
 
@@ -76,27 +78,37 @@ public:
             return;
         }
 
+        // Create a new node with the given value
+        // The new node's prev points to temp, and next points to temp's next
         Node* newNode = new Node(value, temp, temp->next);
         
-        if (temp->next){
+        if (temp->next){ // If temp is not the last node
             temp->next->prev = newNode;
         }
         else {
-            tail = newNode; // Inserting at the end
-            temp->next = newNode;
+            tail = newNode; // If temp was the tail, update tail to the new node
+            temp->next = newNode;  // Link temp's next to the new node
         }
 
         cout << "Inserted value " << value << " after position " << position << "." << endl;
     }
-
-    void delete_node(int value) {
-        if (!head) return; // Empty list
+    //#7: delete_val() deletes the first node with the specified value
+    // arguments: int value - the data to be deleted from the list
+    // returns: void
+    void delete_val(int value) {
+        if (!head) { // If the list is empty
+            cout << "Error: List is empty. Cannot delete value " << value << "." << endl;
+            return;
+        }
 
         Node* temp = head;
         while (temp && temp->data != value)
             temp = temp->next;
 
-        if (!temp) return; // Value not found
+        if (!temp) { // If the value is not found in the list
+            cout << "Error: Value " << value << " not found in the list." << endl;
+            return;
+        }
 
         if (temp->prev) {
             temp->prev->next = temp->next;
@@ -113,6 +125,32 @@ public:
         }
 
         delete temp;
+    }
+
+    void delete_pos(int position) {
+        if (position < 0) { // Validate that position is non-negative
+            cout << "Error: Position must be >= 0." << endl;
+            return;
+        }
+
+        if (!head) { // If the list is empty
+            cout << "Error: List is empty. Cannot delete position " << position << "." << endl;
+            return;
+        }
+
+        Node* temp = head; // Start traversal from the head
+
+        // Traverse the list to reach the specified position
+        for (int i = 0; i < position && temp; ++i) {
+            temp = temp->next;
+        }
+
+        if (!temp) { // If the position exceeds the list size
+            cout << "Error: Position " << position << " exceeds list size. No node deleted." << endl;
+            return;
+        }
+
+
     }
 
     void print() {
