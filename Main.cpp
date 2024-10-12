@@ -56,15 +56,14 @@ public:
         }
     }
 
+    //#6: insert_after() inserts a node after a specified position
+// arguments: int value - the data to be inserted
+//            int position - the position after which to insert the new node
+// returns: void
+
     void insert_after(int value, int position) {
         if (position < 0) {
             cout << "Position must be >= 0." << endl;
-            return;
-        }
-
-        Node* newNode = new Node(value);
-        if (!head) {
-            head = tail = newNode;
             return;
         }
 
@@ -73,18 +72,21 @@ public:
             temp = temp->next;
 
         if (!temp) {
-            cout << "Position exceeds list size. Node not inserted.\n";
-            delete newNode;
+            cout << "Error: Position " << position << " exceeds list size. Node not inserted." << endl;
             return;
         }
 
-        newNode->next = temp->next;
-        newNode->prev = temp;
-        if (temp->next)
+        Node* newNode = new Node(value, temp, temp->next);
+        
+        if (temp->next){
             temp->next->prev = newNode;
-        else
+        }
+        else {
             tail = newNode; // Inserting at the end
-        temp->next = newNode;
+            temp->next = newNode;
+        }
+
+        cout << "Inserted value " << value << " after position " << position << "." << endl;
     }
 
     void delete_node(int value) {
