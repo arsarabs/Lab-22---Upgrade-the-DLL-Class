@@ -263,20 +263,20 @@ public:
 int main() {
     srand(static_cast<unsigned int>(time(0))); //Seed Generation
     DoublyLinkedList list; //Linked List Instance 
-    int size = rand() % (MAX_LS - MIN_LS + 1) + MIN_LS; //Random Formula
 
-    for (int i = 0; i < size; ++i)
-        list.push_back(rand() % (MAX_NR - MIN_NR + 1) + MIN_NR);
-    cout << "List forward: ";
-    list.print();
+    //MAIN ROUGH LAYOUT BELOW
+    
+    //#1: Determine and display random initial size 
+    //#2: Populate the list with random numbers
+    //#3: Adding elements to front/back
+    //#4: Inserting after valid position
+    //#5: Inserting after invalid position
+    //#6: Deletion of existing/nonexisting values
+    //#7: Deletion by position
+    //#8: Popping front/back
+    //#9: Clear List
 
-    cout << "List backward: ";
-    list.print_reverse();
-
-    cout << "Deleting list, then trying to print.\n";
-    list.~DoublyLinkedList();
-    cout << "List forward: ";
-    list.print();
+    
 
     return 0;
 }
