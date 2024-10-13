@@ -1,4 +1,8 @@
+
 #include <iostream>
+#include <iomanip>  
+#include <cstdlib>  
+#include <ctime>    
 using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
@@ -264,8 +268,7 @@ int main() {
     srand(static_cast<unsigned int>(time(0))); //Seed Generation
     DoublyLinkedList list; //Linked List Instance 
 
-    //MAIN ROUGH LAYOUT BELOW
-    
+   
     //#1: Determine and display random initial size 
     int initial_size = rand() % (MAX_LS - MIN_LS + 1) + MIN_LS;
     cout << "Initializing list with " << initial_size << " random elements between " << MIN_NR << " and " << MAX_NR << endl;
@@ -281,17 +284,20 @@ int main() {
     cout << "List size: " << list.size() << endl; // Output the current size of the list
 
     //#3: Adding elements to front/back
+    cout << endl;
     cout << "Add 42 to front " << endl;
     list.push_front(42);
     cout << "Add 24 to back " << endl;
     list.push_back(42);
 
     //#4: Inserting after invalid position
+    cout << endl;
     int invalid_pos = 247;
     cout << "Tried to insert 25 after invalid position " << invalid_pos << endl;
     list.insert_after(25, invalid_pos);
     
     //#5: Inserting after valid position
+    cout << endl;
     int insert_pos = 4;   //positon
     int insert_val = 48;  // Value inserted
     cout << "Inserting " << insert_val << " after position " << insert_pos << endl;
@@ -302,9 +308,15 @@ int main() {
     list.print_reverse();  // Display the list from tail to head
     cout << "List size: " << list.size() << endl; // Output the current size of the list
 
-    
     //#6: Deletion of existing/nonexisting values
+    cout << endl;
+    int delete_val = 31;
+    cout << "Deleting the value " << delete_val << endl;
+    list.delete_val(delete_val);
 
+    int delete_non = 31;
+    cout << "Tried to delete " << delete_val << endl;
+    list.delete_val(delete_non);
 
     //DISPAY CURRENT STATUS OF LIST
     list.print();          // Display the list from head to tail
@@ -312,6 +324,7 @@ int main() {
     cout << "List size: " << list.size() << endl; // Output the current size of the list
     
     //#7: Deletion by position
+    cout << endl;
     int invalid_delete_pos = 74; //Invalid Attempt
     cout << "Tried to delete node at invalid position " << invalid_delete_pos << endl;
     list.delete_pos(invalid_delete_pos);
@@ -331,6 +344,7 @@ int main() {
     cout << "List size: " << list.size() << endl; // Output the current size of the list
     
     //#8: Popping front/back
+    cout << endl;
     cout << "Popping FRONT node " << endl;
     list.pop_front(); 
 
@@ -343,6 +357,7 @@ int main() {
     cout << "List size: " << list.size() << endl; // Output the current size of the list
     
     //#9: Clear List
+    cout << endl;
     cout << "CLEAR LIST" << endl;
     //Use a simple while loop to remove nodes until list is empty
     while (list.size() > 0) {
