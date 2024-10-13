@@ -265,109 +265,127 @@ public:
 
 // Driver program
 int main() {
+    cout << "Upgraded the DLL Class: " << endl;
+    cout << "**********************************************************************************************" << endl;
+    cout << endl;
+
     srand(static_cast<unsigned int>(time(0))); //Seed Generation
     DoublyLinkedList list; //Linked List Instance 
 
    
     //#1: Determine and display random initial size 
     int initial_size = rand() % (MAX_LS - MIN_LS + 1) + MIN_LS;
-    cout << "Initializing list with " << initial_size << " random elements between " << MIN_NR << " and " << MAX_NR << endl;
+    cout << left << setw(50) << "Initializing list with " << initial_size << " random elements between " << MIN_NR << " and " << MAX_NR << endl;
 
     //#2: Populate the list with random numbers
     for (int i = 0; i < initial_size; ++i) {
         int value = rand() % (MAX_NR - MIN_NR + 1) + MIN_NR; 
         list.push_back(value); // insert random val at end of list
     }
-    //DISPAY CURRENT STATUS OF LIST
+    //DISPLAY CURRENT STATUS OF LIST
+    cout << "**********************************************************************************************" << endl;
+    cout << left << setw(50) << "List forward:";
     list.print();          // Display the list from head to tail
+    cout << left << setw(50) << "List backward:";
     list.print_reverse();  // Display the list from tail to head
-    cout << "List size: " << list.size() << endl; // Output the current size of the list
+    cout << left << setw(50) << "List size: " << list.size() << endl; // Output the current size of the list
 
     //#3: Adding elements to front/back
     cout << endl;
-    cout << "Add 42 to front " << endl;
+    cout << left << setw(50) << "Add 42 to front" << endl;
     list.push_front(42);
-    cout << "Add 24 to back " << endl;
-    list.push_back(42);
+    cout << left << setw(50) << "Add 24 to back" << endl;
+    list.push_back(24);
 
     //#4: Inserting after invalid position
     cout << endl;
     int invalid_pos = 247;
-    cout << "Tried to insert 25 after invalid position " << invalid_pos << endl;
+    cout << left << setw(50) << "Tried to insert 25 after invalid position " << invalid_pos << endl;
     list.insert_after(25, invalid_pos);
     
     //#5: Inserting after valid position
     cout << endl;
     int insert_pos = 4;   //positon
     int insert_val = 48;  // Value inserted
-    cout << "Inserting " << insert_val << " after position " << insert_pos << endl;
+    cout << left << setw(50) << "Inserting " << insert_val << " after position " << insert_pos << endl;
     list.insert_after(insert_val, insert_pos);
 
-    //DISPAY CURRENT STATUS OF LIST
+    //DISPLAY CURRENT STATUS OF LIST
+    cout << "**********************************************************************************************" << endl;
+    cout << left << setw(50) << "List forward:";
     list.print();          // Display the list from head to tail
+    cout << left << setw(50) << "List backward:";
     list.print_reverse();  // Display the list from tail to head
-    cout << "List size: " << list.size() << endl; // Output the current size of the list
+    cout << left << setw(50) << "List size: " << list.size() << endl; // Output the current size of the list
 
     //#6: Deletion of existing/nonexisting values
     cout << endl;
     int delete_val = 31;
-    cout << "Deleting the value " << delete_val << endl;
+    cout << left << setw(50) << "Deleting the value " << delete_val << endl;
     list.delete_val(delete_val);
 
     int delete_non = 31;
-    cout << "Tried to delete " << delete_val << endl;
+    cout << left << setw(50) << "Tried to delete " << delete_val << endl;
     list.delete_val(delete_non);
 
-    //DISPAY CURRENT STATUS OF LIST
+    //DISPLAY CURRENT STATUS OF LIST
+    cout << "**********************************************************************************************" << endl;
+    cout << left << setw(50) << "List forward:";
     list.print();          // Display the list from head to tail
+    cout << left << setw(50) << "List backward:";
     list.print_reverse();  // Display the list from tail to head
-    cout << "List size: " << list.size() << endl; // Output the current size of the list
+    cout << left << setw(50) << "List size: " << list.size() << endl; // Output the current size of the list
     
     //#7: Deletion by position
     cout << endl;
     int invalid_delete_pos = 74; //Invalid Attempt
-    cout << "Tried to delete node at invalid position " << invalid_delete_pos << endl;
+    cout << left << setw(50) << "Tried to delete node at invalid position " << invalid_delete_pos << endl;
     list.delete_pos(invalid_delete_pos);
 
     int delete_position = 2; //Valid
-    cout << "Deleting node at position " << delete_position << endl;
+    cout << left << setw(50) << "Deleting node at position " << delete_position << endl;
     list.delete_pos(delete_position); // delete node @ position 2 within list
 
-    //DISPAY CURRENT STATUS OF LIST
+    //DISPLAY CURRENT STATUS OF LIST
+    cout << "**********************************************************************************************" << endl;
+    cout << left << setw(50) << "List forward:";
     list.print();          // Display the list from head to tail
+    cout << left << setw(50) << "List backward:";
     list.print_reverse();  // Display the list from tail to head
-    cout << "List size: " << list.size() << endl; // Output the current size of the list
+    cout << left << setw(50) << "List size: " << list.size() << endl; // Output the current size of the list
 
-    //DISPAY CURRENT STATUS OF LIST
-    list.print();          // Display the list from head to tail
-    list.print_reverse();  // Display the list from tail to head
-    cout << "List size: " << list.size() << endl; // Output the current size of the list
-    
     //#8: Popping front/back
     cout << endl;
-    cout << "Popping FRONT node " << endl;
+    cout << left << setw(50) << "Popping FRONT node" << endl;
     list.pop_front(); 
 
-    cout << "Popping the BACK node " << endl;
+    cout << left << setw(50) << "Popping the BACK node" << endl;
     list.pop_back(); 
 
-    //DISPAY CURRENT STATUS OF LIST
+    //DISPLAY CURRENT STATUS OF LIST
+    cout << "**********************************************************************************************" << endl;
+    cout << left << setw(50) << "List forward:";
     list.print();          // Display the list from head to tail
+    cout << left << setw(50) << "List backward:";
     list.print_reverse();  // Display the list from tail to head
-    cout << "List size: " << list.size() << endl; // Output the current size of the list
+    cout << left << setw(50) << "List size: " << list.size() << endl; // Output the current size of the list
     
     //#9: Clear List
     cout << endl;
-    cout << "CLEAR LIST" << endl;
+    cout << left << setw(50) << "CLEAR LIST" << endl;
     //Use a simple while loop to remove nodes until list is empty
     while (list.size() > 0) {
         list.pop_front();
     }
 
-    //DISPAY CURRENT STATUS OF LIST
+    //DISPLAY CURRENT STATUS OF LIST
+    cout << "**********************************************************************************************" << endl;
+    cout << left << setw(50) << "List forward:";
     list.print();          // Display the list from head to tail
+    cout << left << setw(50) << "List backward:";
     list.print_reverse();  // Display the list from tail to head
-    cout << "List size: " << list.size() << endl; // Output the current size of the list
+    cout << left << setw(50) << "List size: " << list.size() << endl; // Output the current size of the list
+   
 
     return 0;
 }
