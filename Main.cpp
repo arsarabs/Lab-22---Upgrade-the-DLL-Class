@@ -171,11 +171,56 @@ public:
     //#9: pop_front() removes the head node from the list
    // arguments: none
    // returns: void
-     
+
+    void pop_front() {
+        //check for empty list
+        if (!tail) {
+            cout << "List EMPTY" << endl;
+            return;
+        }
+        //Create a temp ptr to the current head
+        Node* temp = head;
+
+        //If there's more than one more node, update head to previous node OR set head/tail to nullptr
+        if (head->next) {
+            head = head->next;
+            head->prev = nullptr;
+        }
+        else {
+            head = tail = nullptr;
+        }
+        cout << "Popped FRONT node " << temp->data << endl;
+        delete temp; //free memory
+    }
+
+   
+
 
      //#10: pop_back() removes the tail node from the list
     // arguments: none
     // returns: void
+
+    void pop_back() {
+        //check for empty list
+        if (!tail) {
+            cout << "List EMPTY" << endl;
+            return;
+        }
+        //Create a temp ptr to the current tail
+        Node* temp = tail;
+
+        //If there's more than one more node, update tail to previous node OR set head/tail to nullptr
+        if (tail->prev) {
+            tail = tail->prev;
+            tail->next = nullptr;
+        }
+        else {
+            head = tail = nullptr;
+        }
+        cout << "Popped BACK node " << temp->data << endl;
+        delete temp; //free memory
+    }
+
 
     void print() {
         Node* current = head;
