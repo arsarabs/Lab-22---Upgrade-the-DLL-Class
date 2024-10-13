@@ -267,15 +267,45 @@ int main() {
     //MAIN ROUGH LAYOUT BELOW
     
     //#1: Determine and display random initial size 
-    // 
+    int initial_size = rand() % (MAX_LS - MIN_LS + 1) + MIN_LS;
+    cout << "Initializing list with " << initial_size << " random elements between " << MIN_NR << " and " << MAX_NR << endl;
+
     //#2: Populate the list with random numbers
+    for (int i = 0; i < initial_size; ++i) {
+        int value = rand() % (MAX_NR - MIN_NR + 1) + MIN_NR; 
+        list.push_back(value); // insert random val at end of list
+    }
+    list.print();          // Display the list from head to tail
+    list.print_reverse();  // Display the list from tail to head
+    cout << "List size: " << list.size() << endl; // Output the current size of the list
+
     //#3: Adding elements to front/back
-    //#4: Inserting after valid position
-    //#5: Inserting after invalid position
+    cout << "Add 42 to front " << endl;
+    list.push_front(42);
+    cout << "Add 24 to back " << endl;
+    list.push_back(42);
+
+    //#4: Inserting after invalid position
+    int invalid_pos = 247;
+    cout << "Tried to insert 25 after invalid position " << invalid_pos << endl;
+    list.insert_after(25, invalid_pos);
+    
+    //#5: Inserting after valid position
+    int insert_pos = 4;   //positon
+    int insert_val = 48;  // Value inserted
+    cout << "Inserting " << insert_val << " after position " << insert_pos << endl;
+    list.insert_after(insert_val, insert_pos);
+    
     //#6: Deletion of existing/nonexisting values
+    
     //#7: Deletion by position
+    
     //#8: Popping front/back
+    
+    
     //#9: Clear List
+
+
 
     
 
