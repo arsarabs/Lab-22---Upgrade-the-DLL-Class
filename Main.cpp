@@ -261,8 +261,9 @@ public:
 
 // Driver program
 int main() {
-    DoublyLinkedList list;
-    int size = rand() % (MAX_LS - MIN_LS + 1) + MIN_LS;
+    srand(static_cast<unsigned int>(time(0))); //Seed Generation
+    DoublyLinkedList list; //Linked List Instance 
+    int size = rand() % (MAX_LS - MIN_LS + 1) + MIN_LS; //Random Formula
 
     for (int i = 0; i < size; ++i)
         list.push_back(rand() % (MAX_NR - MIN_NR + 1) + MIN_NR);
