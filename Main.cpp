@@ -267,6 +267,7 @@ int main() {
     //MAIN ROUGH LAYOUT BELOW
     
     //#1: Determine and display random initial size 
+    // 
     //#2: Populate the list with random numbers
     //#3: Adding elements to front/back
     //#4: Inserting after valid position
