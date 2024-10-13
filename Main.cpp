@@ -167,11 +167,11 @@ public:
         cout << "Deleted node at position " << position << " with value " << temp->data << "." << endl;
         delete temp; // Delete the node to free memory
     }
-
+     
     //#9: pop_front() removes the head node from the list
    // arguments: none
    // returns: void
-
+     
 
      //#10: pop_back() removes the tail node from the list
     // arguments: none
